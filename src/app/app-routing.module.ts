@@ -10,7 +10,7 @@ const appRoutes: Routes = [
   //{ path: 'crisis-center', component: CrisisListComponent },
   //{ path: 'heroes', component: HeroListComponent },
   { path : 'compose', component: ComposeMessageComponent, outlet :'popup'},
-  { path: '', redirectTo: '/heros', pathMatch: 'full' },
+  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

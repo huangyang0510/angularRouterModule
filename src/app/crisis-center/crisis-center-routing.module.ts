@@ -14,12 +14,8 @@ const crisisCenterRoutes : Routes = [
       {
         path:'',component: CrisisListComponent,
         children :[
-          {
-            path: ':id', component: CrisisDetailComponent
-          },
-          {
-            path:'',component : CrisisCenterHomeComponent
-          }
+          { path: ':id', component: CrisisDetailComponent},
+          { path: '',component : CrisisCenterHomeComponent}
         ]
       }
     ]
