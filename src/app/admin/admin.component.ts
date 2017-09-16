@@ -4,9 +4,9 @@ import { Component } from "@angular/core";
   template:`
     <h3>ADMIN</h3>
     <nav>
-      <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"></a>
-      <a routerLink="./crisis" routerLinkActive="active"></a>
-      <a routerLink="./heroes" routerLinkActive="active"></a>
+      <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+      <a routerLink="./crisis" routerLinkActive="active">Manage Crises</a>
+      <a routerLink="./heroes" routerLinkActive="active">Manage Heroes</a>
     </nav>
     <router-outlet></router-outlet>
   `

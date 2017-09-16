@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
     <p>{{message}}</p>
     <p>
       <button (click)="login()" *ngIf="!authService.isLoggedIn">Login</button>
-      <button (click)="login()" *ngIf="authService.isLoggedIn">Logout</button>
+      <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
     </p>
   `
 })
