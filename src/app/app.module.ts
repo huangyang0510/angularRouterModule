@@ -1,5 +1,3 @@
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +14,8 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginModule } from './login/login.module';
+
+import { DialogService } from './dialog.service';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { LoginModule } from './login/login.module';
     BrowserAnimationsModule
   ],
   providers: [
-    
+    DialogService
   ],
   bootstrap: [AppComponent]
 })

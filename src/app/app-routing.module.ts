@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 //import { HeroListComponent } from './hero-list.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 const appRoutes: Routes = [
   //{ path: 'crisis-center', component: CrisisListComponent },
@@ -23,6 +24,9 @@ const appRoutes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers:[
+    CanDeactivateGuard
   ]
 })
 export class AppRoutingModule {

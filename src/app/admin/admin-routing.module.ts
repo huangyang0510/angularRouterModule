@@ -7,6 +7,7 @@ const adminRoutes: Routes = [
     children: [
       {//无组件路由: 不借助组件对路由进行分组
         path: '',
+        canActivateChild:[AuthGuard],
         children: [
           { path: 'crisis', component: ManageCrisisComponent },
           { path: 'heroes', component: ManageHeroesComponent },

@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Crisis } from './model/crisis.model';
-import { CRISIS } from './crisis.service';
+import { CrisisService } from './crisis.service';
 
 @Component({
   template: `
     <ul class="items">
-      <li *ngFor="let crisis of crisises " [class.selected]="isSelected(crisis)" (click)="onSelect(crisis)">
+      <li *ngFor="let crisis of crises | async" [class.selected]="isSelected(crisis)" (click)="onSelect(crisis)">
         <span class="badge">{{crisis.id}}</span>
-         <span class="badge">{{crisis.name}}</span>
+        {{ crisis.name }}
       </li>
     </ul>
 
@@ -21,24 +21,29 @@ import { CRISIS } from './crisis.service';
   `
 })
 export class CrisisListComponent implements OnInit {
-  crisises : Crisis [] ;
+  crises: Observable<Crisis[]>;
 
   private selectedId: number;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-  ) {}
+    private service: CrisisService
+  ) { }
 
   ngOnInit() {
-    this.crisises = CRISIS
+    this.crises = this.route.paramMap
+      .switchMap((params: ParamMap) => {
+        this.selectedId = +params.get('id');
+        return this.service.getCrises();
+      });
   }
 
   isSelected(crisis: Crisis) { return crisis.id === this.selectedId; }
 
-  onSelect(crisis : Crisis){
+  onSelect(crisis: Crisis) {
     this.selectedId = crisis.id
-    this.router.navigate([crisis.id],{relativeTo:this.route});
+    this.router.navigate([crisis.id], { relativeTo: this.route });
   }
 }
 

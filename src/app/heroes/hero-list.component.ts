@@ -12,6 +12,7 @@ import { Hero, HeroService } from './hero.service';
     <ul class="items">
       <li *ngFor="let hero of heroes | async" [class.selected]="isSelected(hero)" (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span>
+        {{ hero.name }}
       </li>
     </ul>
 
