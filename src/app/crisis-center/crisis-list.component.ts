@@ -17,7 +17,7 @@ import { CrisisService } from './crisis.service';
       </li>
     </ul>
 
-    <button routerLink="/sidekicks">Go to sidekicks</button>
+    <router-outlet></router-outlet>
   `
 })
 export class CrisisListComponent implements OnInit {
