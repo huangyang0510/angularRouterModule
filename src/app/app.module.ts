@@ -11,8 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { PageNotFoundComponent } from './not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { CrisisCenterModule } from './crisis-center/crisis-center.module';
-import { AdminModule } from './admin/admin.module';
+//import { CrisisCenterModule } from './crisis-center/crisis-center.module';
+//import { AdminModule } from './admin/admin.module';
 import { LoginModule } from './login/login.module';
 
 import { DialogService } from './dialog.service';
@@ -28,8 +28,8 @@ import { DialogService } from './dialog.service';
     BrowserModule,
     FormsModule,
     HeroesModule,
-    CrisisCenterModule,
-    AdminModule,
+    //CrisisCenterModule,
+    //AdminModule,//异步加载，不需要引入
     LoginModule,
     AppRoutingModule,
     BrowserAnimationsModule

@@ -1,7 +1,7 @@
 
 const adminRoutes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     canActivate: [AuthGuard],//路由守卫，验证是否登录
     children: [

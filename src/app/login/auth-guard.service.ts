@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, Router, ActivatedRouteSnapshot, RouterStateSnapshot, NavigationExtras } from '@angular/router';
+import { CanActivate,
+         CanActivateChild,
+         Router, ActivatedRouteSnapshot,
+         RouterStateSnapshot,
+         NavigationExtras,
+         CanLoad,
+         Route } from '@angular/router';
 
 
 import { AuthService } from "./auth.service";
 import { state } from '@angular/animations';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(
     private authService: AuthService,
     private router: Router
@@ -23,6 +29,14 @@ export class AuthGuard implements CanActivate, CanActivateChild {
    */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
+    return this.checkLogin(url);
+  }
+  /**
+   * 用户已登录并且尝试访问管理特性区的时候，才加载AdminModule一次。
+   * @param route
+   */
+  canLoad(route: Route){
+    let url = `/${route.path}`;
     return this.checkLogin(url);
   }
   /**

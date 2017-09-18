@@ -10,7 +10,7 @@ import { CrisisDetailResolver } from './crisis-detail-resolver.service';
 
 const crisisCenterRoutes: Routes = [
   {
-    path: 'crisis-center', component: CrisisCenterComponent,
+    path: '', component: CrisisCenterComponent,
     children: [
       {
         path: '', component: CrisisListComponent,
@@ -21,7 +21,7 @@ const crisisCenterRoutes: Routes = [
             canDeactivate: [CanDeactivateGuard],
             resolve: {
               crisis: CrisisDetailResolver
-            } 
+            }
           },
           { path: '', component: CrisisCenterHomeComponent }
         ]
